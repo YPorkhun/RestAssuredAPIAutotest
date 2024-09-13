@@ -3,6 +3,8 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
 public class HealthCheckTest {
+
+    //BDD syntax
     @Test
     public void healthCheckTest() {
                given()
