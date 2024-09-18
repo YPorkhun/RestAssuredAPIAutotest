@@ -19,7 +19,7 @@ public class UpdateBookingTest extends BaseTest {
         //Get bookingId of new booking from response
         int bookingid = responseCreate.jsonPath().getInt("bookingid");
 
-        //Create JSON body
+        //Create new JSON body
         JSONObject body = new JSONObject();
         body.put("firstname", "Kyrylo");
         body.put("lastname", "Porkhun");
@@ -32,8 +32,8 @@ public class UpdateBookingTest extends BaseTest {
         body.put("bookingdates",bookingdates );
         body.put("additionalneeds", "Breakfast");
 
-        //Update booking
-        Response responseUpdate = RestAssured.given().contentType(ContentType.JSON).
+        //Update booking using basic authentication
+        Response responseUpdate = RestAssured.given().contentType(ContentType.JSON).auth().preemptive().basic("admin","password123").
                 body(body.toString()).put("https://restful-booker.herokuapp.com/booking/" + bookingid);
         responseUpdate.print();
 
@@ -53,7 +53,7 @@ public class UpdateBookingTest extends BaseTest {
         softAssert.assertEquals(price, 1500, "Total price in response does not equal to 673");
 
         boolean depositPaid = responseUpdate.jsonPath().getBoolean("depositpaid");
-        softAssert.assertTrue(depositPaid, "Depositpaid is true but should be false");
+        softAssert.assertFalse(depositPaid, "Depositpaid is true but should be false");
 
         String actualCheckin = responseUpdate.jsonPath().getString("bookingdates.checkin");
         softAssert.assertEquals(actualCheckin, "2024-09-14", "Actual checkin is not expected");
