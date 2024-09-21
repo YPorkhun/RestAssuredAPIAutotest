@@ -17,8 +17,7 @@ public class DeleteBookingTest extends BaseTest {
         int bookingid = responseCreate.jsonPath().getInt("bookingid");
 
         //Delete booking using basic authentication
-        Response responseDelete = RestAssured.given().contentType(ContentType.JSON).auth().preemptive().basic("admin","password123").
-                delete("https://restful-booker.herokuapp.com/booking/" + bookingid);
+        Response responseDelete = RestAssured.given().contentType(ContentType.JSON).auth().preemptive().basic("admin","password123").delete("https://restful-booker.herokuapp.com/booking/" + bookingid);
         responseDelete.print();
 
         //Make sure that response with code 201
