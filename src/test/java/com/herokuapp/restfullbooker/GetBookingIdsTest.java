@@ -6,13 +6,13 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 
-public class GetBookingIdsTest {
+public class GetBookingIdsTest extends BaseTest {
 
     //Java coding style
     @Test
     public void getBookingIdsTest() {
         //Get response from booking ids
-        Response response = RestAssured.get("https://restful-booker.herokuapp.com/booking");
+        Response response = RestAssured.given(spec).get("/booking");
         response.print();
 
         //Make sure that response with code 200

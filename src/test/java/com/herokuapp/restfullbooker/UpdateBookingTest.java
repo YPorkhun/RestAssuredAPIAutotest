@@ -33,8 +33,11 @@ public class UpdateBookingTest extends BaseTest {
         body.put("additionalneeds", "Breakfast");
 
         //Update booking using basic authentication
-        Response responseUpdate = RestAssured.given().contentType(ContentType.JSON).auth().preemptive().basic("admin","password123").
-                body(body.toString()).put("https://restful-booker.herokuapp.com/booking/" + bookingid);
+        Response responseUpdate = RestAssured.given(spec).contentType(ContentType.JSON)
+                .auth().preemptive()
+                .basic("admin","password123").
+                body(body.toString())
+                .put("/booking/" + bookingid);
         responseUpdate.print();
 
         //Make sure that response with code 200
