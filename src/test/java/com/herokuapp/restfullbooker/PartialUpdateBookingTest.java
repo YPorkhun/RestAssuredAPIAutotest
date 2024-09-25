@@ -29,8 +29,11 @@ public class PartialUpdateBookingTest extends BaseTest {
         body.put("bookingdates",bookingdates );
 
         //Partial update booking using basic authentication
-        Response responseUpdate = RestAssured.given().contentType(ContentType.JSON).auth().preemptive().basic("admin","password123").
-                body(body.toString()).patch("https://restful-booker.herokuapp.com/booking/" + bookingid);
+        Response responseUpdate = RestAssured.given(spec).contentType(ContentType.JSON)
+                .auth().preemptive()
+                .basic("admin","password123").
+                body(body.toString())
+                .patch("/booking/" + bookingid);
         responseUpdate.print();
 
         //Make sure that response with code 200
