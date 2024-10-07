@@ -16,6 +16,7 @@
         <testng.version>7.10.2</testng.version>
         <restassured.version>5.5.0</restassured.version>
         <json.version>20240303</json.version>
+        <jacksondatabind.version>2.18.0</jacksondatabind.version>
     </properties>
 
     <dependencies>
@@ -34,6 +35,12 @@
             <artifactId>json</artifactId>
             <version>${json.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jacksondatabind.version}</version>
+        </dependency>
+
 
     </dependencies>
     <build>
