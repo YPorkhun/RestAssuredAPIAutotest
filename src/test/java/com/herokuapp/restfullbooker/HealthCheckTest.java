@@ -35,7 +35,7 @@ public class HealthCheckTest extends BaseTest {
                 .cookie("Test cookie name","test cookie value")
                 .header("Test header", "Test header value").log().all().get("/ping");
 
-        //Second way  is to get headers and cookies separately
+        //Second way is to get headers and cookies separately
 
         Headers headers = response.getHeaders();
         System.out.println("Headers: " + headers);
