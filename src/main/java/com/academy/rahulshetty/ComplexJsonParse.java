@@ -2,6 +2,8 @@ package com.academy.rahulshetty;
 
 import com.academy.rahulshetty.files.Requests;
 import io.restassured.path.json.JsonPath;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class ComplexJsonParse {
 
@@ -41,8 +43,26 @@ public class ComplexJsonParse {
                     break;
                 }
             }
+    }
         // Verify if Sum of all Course prices matches with Purchase Amount
+    @Test
+    public void sumOfAllCourses() {
+        JsonPath js = new JsonPath(Requests.Courses());
+        int coursesCount = js.getInt("courses.size()");
+        int purchaseAmount = js.getInt("dashboard.purchaseAmount");
 
+        int sum = 0;
+        for (int i =0; i<coursesCount; i++) {
+
+            int coursesPrice = js.getInt("courses["+ i + "].price");
+            int coursesCopies = js.getInt("courses["+ i + "].copies");
+            int sumOfAllCourses = coursesCopies * coursesPrice;
+            System.out.println(sumOfAllCourses);
+            sum = sum + sumOfAllCourses;
+
+        }
+        System.out.println("Sum of all courses = "+ sum);
+        Assert.assertEquals(sum, purchaseAmount);
     }
 
 }
