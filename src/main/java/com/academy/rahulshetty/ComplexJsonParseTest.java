@@ -1,12 +1,11 @@
 package com.academy.rahulshetty;
 
 import com.academy.rahulshetty.files.Requests;
-import com.academy.rahulshetty.files.Requests;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ComplexJsonParse {
+public class ComplexJsonParseTest {
 
     public static void main(String[] args) {
 

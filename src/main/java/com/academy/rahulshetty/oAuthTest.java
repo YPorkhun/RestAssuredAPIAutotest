@@ -3,7 +3,7 @@ package com.academy.rahulshetty;
 import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.given;
 
-public class oAuth {
+public class oAuthTest {
     public static void main(String[] args) {
 
         String response1 = given()
@@ -23,7 +23,6 @@ public class oAuth {
                 .queryParam("access_token", accessToken)
                 .when().log().all()
                 .get("https://rahulshettyacademy.com/oauthapi/getCourseDetails").asString();
-
         System.out.println(response2);
 
     }
