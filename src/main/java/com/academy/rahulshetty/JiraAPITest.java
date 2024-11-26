@@ -8,7 +8,7 @@ import java.io.File;
 import static io.restassured.RestAssured.*;
 
 
-public class JiraAPI {
+public class JiraAPITest {
     public static void main(String[] args) {
 
         // Create bug on Jira dashboard

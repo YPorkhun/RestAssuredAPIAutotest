@@ -28,11 +28,11 @@ public class Requests {
                 "}";
     }
 
-    public static String AddBook() {
+    public static String AddBook(String isbn, String aisle) {
           return "{\n" +
                   "\"name\":\"Learn Appium Automation with Java\",\n" +
-                  "\"isbn\":\"bcd\",\n" +
-                  "\"aisle\":\"227req\",\n" +
+                  "\"isbn\":\""+isbn+"\",\n" +
+                  "\"aisle\":\""+aisle+"\",\n" +
                   "\"author\":\"John foe\"\n" +
                   "}\n";
     }

@@ -7,7 +7,11 @@ import io.restassured.path.json.JsonPath;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class LibraryAPI {
+public class LibraryAPITest {
+
+    //given - all input details (headers, content type)
+    //when - submit the API (resource, http methods)
+    //then - validate the response
     @Test (dataProvider = "BooksData")
     public void addBook (String isbn , String aisle) {
         RestAssured.baseURI = "http://216.10.245.166";
