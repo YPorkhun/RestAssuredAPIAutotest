@@ -25,7 +25,7 @@ public class POJOExampleTest {
         String accessToken = js.getString("access_token");
         System.out.println(accessToken);
 
-        //Serialization and deserialization
+        //Serialization
         POJOExample pojoEx = given()
                 .queryParam("access_token", accessToken)
                 .when().log().all()
