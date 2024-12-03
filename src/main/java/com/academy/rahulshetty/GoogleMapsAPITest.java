@@ -9,7 +9,6 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 
 public class GoogleMapsAPITest {
-
     @Test
     public void GoogleMapsAddAPI() {
         RestAssured.baseURI = "https://rahulshettyacademy.com";
