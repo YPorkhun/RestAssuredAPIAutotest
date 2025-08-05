@@ -40,8 +40,11 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jacksondatabind.version}</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>3.0</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
