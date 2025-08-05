@@ -28,7 +28,9 @@ public class DeletePlayerTest extends BaseTestInterviewApp {
                 .when()
                 .delete("/player/delete/" + editorLogin)
                 .then()
-                .statusCode(200);
+                .statusCode(204);
+
+        response.print();
     }
     }
 

@@ -18,6 +18,7 @@ public class CreatePlayerTest extends BaseTestInterviewApp {
     @Test
     public void success_CreatePlayer_user_role() {
         Response response = createPlayer();
+        response.print();
         Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200 but is not");
     }
 

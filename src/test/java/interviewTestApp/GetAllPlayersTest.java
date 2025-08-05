@@ -20,6 +20,10 @@ public class GetAllPlayersTest extends BaseTestInterviewApp {
                 .then()
                 .statusCode(200)
                 .extract().response();
+
+        response.print();
+
+        Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200 but is not");
     }
     }
 

@@ -1,9 +1,11 @@
 package interviewTestApp;
 
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import java.util.UUID;
 
@@ -11,13 +13,9 @@ import static io.restassured.RestAssured.given;
 
 public class BaseTestInterviewApp {
 
-    protected RequestSpecification BASE_URL;
-
-    @BeforeMethod
-    public void set_up() {
-        BASE_URL = new RequestSpecBuilder()
-                .setBaseUri("http://3.68.165.45")
-                .build();
+    @BeforeClass
+    public static void setup() {
+        RestAssured.baseURI = "http://3.68.165.45";
     }
 
     protected Response createPlayer() {

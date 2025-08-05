@@ -26,9 +26,11 @@ public class GetPlayerByIdTest extends BaseTestInterviewApp {
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
-                .post("/player/get/" + editorLogin)
+                .post("/player/get")
                 .then()
                 .statusCode(200);
+
+        response.print();
     }
     }
 

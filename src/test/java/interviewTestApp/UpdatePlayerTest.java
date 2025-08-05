@@ -4,7 +4,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 
 public class UpdatePlayerTest extends BaseTestInterviewApp {
@@ -41,9 +40,11 @@ public class UpdatePlayerTest extends BaseTestInterviewApp {
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
-                .post("/player/update/" + editorLogin + "/" + playerId)
+                .patch("/player/update/" + editorLogin + "/" + playerId)
                 .then()
                 .statusCode(200);
+
+        response.print();
     }
     }
 
