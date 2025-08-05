@@ -8,8 +8,6 @@ import static io.restassured.RestAssured.given;
 
 public class GetPlayerByIdTest extends BaseTestInterviewApp {
 
-    String editorLogin = "supervisor";
-
     @Test
     public void success_GetPlayer_by_id() {
 

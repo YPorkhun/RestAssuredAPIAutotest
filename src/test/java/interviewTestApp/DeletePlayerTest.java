@@ -32,5 +32,24 @@ public class DeletePlayerTest extends BaseTestInterviewApp {
 
         response.print();
     }
+
+    @Test
+    public void unsuccess_DeletePlayer_user_role() {
+
+        String playerId = "000";   //wrong player id
+
+        String requestBody = String.format("""
+            {
+              "playerId": %s
+            }
+            """, playerId);
+        given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .delete("/player/delete/" + editorLogin)
+                .then()
+                .statusCode(400);
+    }
     }
 
