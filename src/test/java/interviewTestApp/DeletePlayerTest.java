@@ -11,7 +11,7 @@ public class DeletePlayerTest extends BaseTestInterviewApp {
     String editorLogin = "supervisor";
 
     @Test
-    public void success_DeletePlayer_user_role() {
+    public void success_DeletePlayer() {
 
         Response response = createPlayer();
         Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200 but is not");
@@ -34,7 +34,7 @@ public class DeletePlayerTest extends BaseTestInterviewApp {
     }
 
     @Test
-    public void unsuccess_DeletePlayer_user_role() {
+    public void unsuccess_DeletePlayer_invalidPlayerId() {
 
         String playerId = "000";   //wrong player id
 

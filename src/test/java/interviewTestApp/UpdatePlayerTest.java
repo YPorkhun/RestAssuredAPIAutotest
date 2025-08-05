@@ -48,7 +48,7 @@ public class UpdatePlayerTest extends BaseTestInterviewApp {
     }
 
     @Test
-    public void unsuccess_UpdatePlayer() {
+    public void unsuccess_UpdatePlayer_over_age() {
 
         Response response = createPlayer();
         Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200 but is not");

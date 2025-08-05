@@ -30,5 +30,27 @@ public class GetPlayerByIdTest extends BaseTestInterviewApp {
 
         response.print();
     }
+    @Test
+    public void unsuccess_GetPlayer_by_id_invalid_requestBody() {
+
+        Response response = createPlayer();
+        Assert.assertEquals(response.getStatusCode(), 200, "Status code should be 200 but is not");
+        String playerId = response.jsonPath().getString("id");
+
+        String requestBody = String.format("""
+            {
+              "player": %s
+            }
+            """, playerId);
+        given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .post("/player/get")
+                .then()
+                .statusCode(404);
+
+        response.print();
+    }
     }
 

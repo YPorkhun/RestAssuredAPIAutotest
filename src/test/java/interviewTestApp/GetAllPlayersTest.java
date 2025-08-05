@@ -28,7 +28,7 @@ public class GetAllPlayersTest extends BaseTestInterviewApp {
         Assert.assertFalse(playerIDs.isEmpty(), "List of players is empty but shouldn't be");
     }
     @Test
-    public void unsuccess_GetPlayer_all() {
+    public void unsuccess_GetPlayer_all_invalid_HTTP_Method() {
 
         Response response =
                 given()
